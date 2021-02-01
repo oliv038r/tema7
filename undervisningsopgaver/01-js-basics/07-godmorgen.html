@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        let tid = 24;
+        let resultat;
+
+
+        if (tid > 5) {
+            resultat = "Godmorgen";
+        }
+        if (tid > 10) {
+            resultat = "Goddag";
+        }
+        if (tid > 18) {
+            resultat = "Godaften";
+        }
+        if (tid < 5) {
+            resultat = "Godnat";
+        } else if (tid < 0) {
+            resultat = "Ikke muligt tidspunkt"
+        } else if (tid > 24) {
+            resultat = "Ikke muligt tidspunkt"
+        }
+
+
+
+        console.log(resultat);
+
+    </script>
+</body>
+
+</html>
