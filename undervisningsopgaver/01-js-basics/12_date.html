@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p> Hvad er din alder?</p>
+    <input type="text" id="minalder">
+    <p> Hvad er din dates alder?</p>
+    <input type="text" id="datealder">
+    <button> Klik og find ud af om du overholder reglen</button>
+
+
+
+    <script>
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            let minalder = document.querySelector("#minalder").value;
+            let datealder = document.querySelector("#datealder").value;
+            let godkendt = minalder / 2 + 7;
+            let resultat = `Alderen er ${godkendt}`;
+            console.log(resultat);
+
+            if (minalder <= 14) {
+                console.log("Du er for ung!");
+            } else if (datealder <= 14) {
+                console.log("Du er for ung!");
+            } else if (godkendt >= datealder) {
+                console.log("Pedofil");
+            } else if (datealder >= godkendt) {
+                console.log("Det er i orden morten");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

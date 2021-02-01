@@ -23,6 +23,8 @@
         function buttonClicked() {
             let gæt = document.querySelector("#gæt").value;
 
+            count++;
+
             if (rand == gæt) {
                 console.log(`Tillykke det var rigtigt! Tallet var nemlig ${gæt}`);
                 console.log(`Du brugte ${count} antal gæt. Vil du prøve igen med et nyt tal, så refresh siden.`)

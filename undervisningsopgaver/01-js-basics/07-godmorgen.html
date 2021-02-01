@@ -10,30 +10,42 @@
 
 <body>
     <script>
-        let tid = 24;
-        let resultat;
+        let d = new Date();
+        let n = d.getHours();
 
-
-        if (tid > 5) {
-            resultat = "Godmorgen";
-        }
-        if (tid > 10) {
-            resultat = "Goddag";
-        }
-        if (tid > 18) {
-            resultat = "Godaften";
-        }
-        if (tid < 5) {
-            resultat = "Godnat";
-        } else if (tid < 0) {
-            resultat = "Ikke muligt tidspunkt"
-        } else if (tid > 24) {
-            resultat = "Ikke muligt tidspunkt"
+        if (n >= 18) {
+            console.log("godaften");
+        } else if (n >= 10) {
+            console.log("goddag");
+        } else if (n >= 5) {
+            console.log("godmorgen");
+        } else if (n >= 0) {
+            console.log("godnat");
         }
 
 
+        /* if (tid > 5) {
+             resultat = "Godmorgen";
+         }
+         if (tid > 10) {
+             resultat = "Goddag";
+         }
+         if (tid > 18) {
+             resultat = "Godaften";
+         }
+         if (tid < 5) {
+             resultat = "Godnat";
+         } else if (tid < 0) {
+             resultat = "Ikke muligt tidspunkt"
+         } else if (tid > 24) {
+             resultat = "Ikke muligt tidspunkt"
+         }*/
 
-        console.log(resultat);
+
+
+        /*
+                console.log(resultat);
+        */
 
     </script>
 </body>
