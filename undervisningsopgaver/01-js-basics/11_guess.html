@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p> Gæt på et tal mellem 0 og 20</p>
+    <input type="number" id="gæt">
+    <button> Gæt</button>
+
+    <script>
+        let rand = Math.round(Math.random() * 20);
+        let count = 0;
+
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            let gæt = document.querySelector("#gæt").value;
+
+            if (rand == gæt) {
+                console.log(`Tillykke det var rigtigt! Tallet var nemlig ${gæt}`);
+                console.log(`Du brugte ${count} antal gæt. Vil du prøve igen med et nyt tal, så refresh siden.`)
+            } else if (rand < gæt) {
+                console.log(`Desværre! Tallet var lavere end dit gæt: ${gæt}. Prøv igen!`);
+            } else if (rand > gæt) {
+                console.log(`Desværre! Tallet var højere end dit gæt: ${gæt}. Prøv igen!`);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
