@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Basics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <input type="text" id="alder">
+    <button id="gammel">Beregn gammel</button>
+    <button id="ny">Beregn ny</button>
+
+    <script>
+        document.querySelector("#gammel").addEventListener("click", gammelClicked);
+        document.querySelector("#ny").addEventListener("click", nyClicked);
+
+
+        let alder = document.querySelector("#alder").value;
+        let regel = alder * 7;
+        let regel2 = 16 * Math.log(alder) + 31;
+
+
+        function gammelClicked() {
+            console.log(`${regel}`);
+
+        }
+
+        function nyClicked() {
+            console.log(`{regel2}`);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øvelse 1</title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            border: 1px solid grey;
+            padding-top: 1%;
+            padding-bottom: 1%;
+        }
+
+        main {
+            margin-left: 10%;
+            width: 80%;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1%;
+        }
+
+        article {
+            border: 1px solid grey;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            border: 1px solid grey;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            margin-top: 2%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1> Titel</h1>
+    </header>
+    <main>
+        <h2> Undertitel</h2>
+        <section>
+            <article>
+                <img src="https://placeimg.com/400/300/nature" alt="" class="first">
+                <h3> Article 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni qui, dicta amet dolore quae autem voluptatum quis. Blanditiis ab quis aliquam deleniti quaerat odit laborum officia distinctio. Deleniti, sapiente laborum.</p>
+            </article>
+            <article>
+                <img src="https://placeimg.com/400/300/nature" alt="" class="second">
+                <h3> Article 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni qui, dicta amet dolore quae autem voluptatum quis. Blanditiis ab quis aliquam deleniti quaerat odit laborum officia distinctio. Deleniti, sapiente laborum.</p>
+            </article>
+
+        </section>
+    </main>
+    <footer>
+        <p> This is the footer</p>
+    </footer>
+
+
+    <script>
+        const titel = document.querySelector("header");
+        console.log(titel);
+        titel.textContent = "Billede-galleri";
+        titel.innerHTML = "<h1> Billede-galleri</h1>"
+
+        const pic1 = document.querySelector("article:first-child img")
+        console.log(pic1);
+        pic1.alt = "billede 1"
+    </script>
+</body></html>

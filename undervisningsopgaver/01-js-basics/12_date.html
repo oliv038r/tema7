@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="">
 
 <head>
     <meta charset="utf-8">
@@ -9,33 +9,61 @@
 </head>
 
 <body>
-    <p> Hvad er din alder?</p>
-    <input type="text" id="minalder">
-    <p> Hvad er din dates alder?</p>
-    <input type="text" id="datealder">
-    <button> Klik og find ud af om du overholder reglen</button>
 
+    <div>
+        <p>Din alder</p>
+
+        <input type="text" id="dinAlderTxt">
+
+        <p>Din dates alder</p>
+
+        <input type="text" id="dinDatesAlderTxt">
+        <button>Går det?</button>
+
+    </div>
 
 
     <script>
-        document.querySelector("button").addEventListener("click", buttonClicked);
+        let dinAlder;
+        let datesAlder;
+        let minimumAlder;
+        let maximumAlder;
 
-        function buttonClicked() {
-            let minalder = document.querySelector("#minalder").value;
-            let datealder = document.querySelector("#datealder").value;
-            let godkendt = minalder / 2 + 7;
-            let resultat = `Alderen er ${godkendt}`;
-            console.log(resultat);
+        document.querySelector("button").addEventListener("click", button_clicked);
 
-            if (minalder <= 14) {
-                console.log("Du er for ung!");
-            } else if (datealder <= 14) {
-                console.log("Du er for ung!");
-            } else if (godkendt >= datealder) {
-                console.log("Pedofil");
-            } else if (datealder >= godkendt) {
-                console.log("Det er i orden morten");
+        function button_clicked() {
+            dinAlder = document.querySelector("#dinAlderTxt").value;
+            datesAlder = document.querySelector("#dinDatesAlderTxt").value;
+            // Hvad er det yngste din date må være
+            minimumAlder = Math.round(dinAlder / 2 + 7);
+            maximumAlder = Math.round((dinAlder - 7) * 2);
+            console.log("minimumAlder", minimumAlder);
+            console.log("maximumAlder", maximumAlder);
+
+            if (dinAlder < 15 || datesAlder < 15) {
+
+                console.log("En af parterne er for unge");
+            } else {
+                if (datesAlder >= minimumAlder && datesAlder <= maximumAlder) {
+                    console.log("Det er passende")
+
+
+
+                } else if (datesAlder < minimumAlder) {
+
+                    console.log(`Du er ${dinAlder} og din date er ${datesAlder}. Din date er ${minimumAlder-datesAlder} år for ung`)
+                } else if (datesAlder >= maximumAlder) {
+
+                    console.log(`Du er ${dinAlder} og din date er ${datesAlder}. Din date er ${datesAlder -maximumAlder} år for gammel`)
+
+                }
+
+
             }
+
+
+
+
         }
 
     </script>
