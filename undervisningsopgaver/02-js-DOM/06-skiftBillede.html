@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øvelse 1</title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            border: 1px solid grey;
+            padding-top: 1%;
+            padding-bottom: 1%;
+        }
+
+        main {
+            margin-left: 10%;
+            width: 80%;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1%;
+        }
+
+        article {
+            border: 1px solid grey;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            border: 1px solid grey;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            margin-top: 2%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Titel</h1>
+    </header>
+    <main>
+        <h2> Undertitel</h2>
+        <section>
+            <article>
+                <img src="https://placeimg.com/400/300/nature" alt="" class="first">
+                <h3> Article 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni qui, dicta amet dolore quae autem voluptatum quis. Blanditiis ab quis aliquam deleniti quaerat odit laborum officia distinctio. Deleniti, sapiente laborum.</p>
+            </article>
+            <article>
+                <img src="https://placeimg.com/400/300/nature" alt="" class="second">
+                <h3> Article 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni qui, dicta amet dolore quae autem voluptatum quis. Blanditiis ab quis aliquam deleniti quaerat odit laborum officia distinctio. Deleniti, sapiente laborum.</p>
+            </article>
+
+        </section>
+    </main>
+    <footer>
+        This is the footer
+    </footer>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+        document.querySelector("article:nth-child(1) img").addEventListener("click", clickBillede);
+
+        function clickBillede() {
+            const pic1 = document.querySelector("article:nth-child(1) img")
+            const tilfældigtTal = Math.round(Math.random() * 10);
+            pic1.src = "https://placeimg.com/400/300/arch?t=" + tilfældigtTal;
+            console.log(pic1.src);
+        }
+
+
+
+        function start() {
+            console.log("DOM er loaded");
+
+
+            const titel = document.querySelector("h1");
+            titel.textContent = "Ny titel";
+            console.log(titel.textContent);
+
+
+            const underoverskrift = document.querySelector("h2");
+            underoverskrift.textContent = "Ny underoverskrift";
+            console.log(underoverskrift.textContent);
+
+            const article1 = document.querySelector("article:nth-child(1) h3")
+            article1.textContent = "Ny article 1";
+            console.log(article1.textContent);
+
+            const article2 = document.querySelector("article:nth-child(2) h3")
+            article2.textContent = "Ny article 2";
+            console.log(article2.textContent);
+
+            const paragraph1 = document.querySelector("article:nth-child(1) p")
+            paragraph1.innerHTML = "<b>Ny paragraph 1</b>";
+            console.log(paragraph1.innerHTML);
+
+            const paragraph2 = document.querySelector("article:nth-child(2) p")
+            paragraph2.textContent = "Ny paragraph 2";
+            console.log(paragraph2.textContent);
+
+            const pic1 = document.querySelector("article:nth-child(1) img")
+            pic1.src = "https://placeimg.com/400/300/animals";
+            pic1.alt = "Animals";
+            console.log(pic1.src);
+            console.log(pic1.alt);
+
+            const pic2 = document.querySelector("article:nth-child(2) img")
+            pic2.src = "https://placeimg.com/400/300/people";
+            pic2.alt = "People";
+            console.log(pic2.src);
+            console.log(pic2.alt);
+
+            const footer = document.querySelector("footer");
+            footer.textContent = "Ny footer";
+            console.log(footer.textContent);
+
+            let mainSection = document.querySelector("section");
+
+            // Ny article element
+            let newArticle = document.createElement("article");
+
+            // Indhent img element
+            let img = document.createElement("img");
+            // Indsæt billede
+            img.src = "https://placeimg.com/400/300/tech";
+            // Tilføj nyt billede til article
+            newArticle.appendChild(img);
+
+            // Ny H# element
+            let overskrift = document.createElement("h3");
+            // Tekst til overskriften
+            let overskriftTekst = document.createTextNode("Article 3");
+            // Indsæt tekst i overskrift
+            overskrift.appendChild(overskriftTekst);
+            // Tilføj overskrift til article
+            newArticle.appendChild(overskrift);
+
+            // Ny paragraph element
+            let paragraph = document.createElement("p");
+            // Tekst til paragraph
+            let paragraphText = document.createTextNode("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni qui, dicta amet dolore quae autem voluptatum quis. Blanditiis ab quis aliquam deleniti quaerat odit laborum officia distinctio. Deleniti, sapiente laborum.");
+            // Indsæt tekst i paragraph
+            paragraph.appendChild(paragraphText);
+            // Tilføj overskrift til article
+            newArticle.appendChild(paragraph);
+
+            // Tilføj article til section
+            mainSection.appendChild(newArticle);
+
+        }
+    </script>
+</body></html>
