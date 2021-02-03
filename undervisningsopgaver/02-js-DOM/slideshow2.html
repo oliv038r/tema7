@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øvelse 2</title>
+    <link rel="stylesheet" href="">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>Tro på det...</h1>
+    <img src="billeder/img1.png" alt="billede 1">
+    <button>Videre</button>
+    <P>Billeder venligst udlånt af Rasmus Bregnhøi</P>
+
+    <script>
+        //lav en tæller
+        let number = 0;
+        //find billede
+        const billede = document.querySelector("img");
+        //opret array
+        let billeder = ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png", "img7.png", "img8.png"];
+        // klik på knap for skifte billede
+        const knap = document.querySelector("button");
+        const skiftTekst = document.querySelector("button");
+        knap.addEventListener("click", skiftBillede);
+        //opret funktion til at skifte billede
+        function skiftBillede() {
+
+            //hvis billedet < billed array så skal billedet skifte
+            if (number < 7) {
+                //tæl op
+                number++;
+                console.log(billeder[number]);
+                billede.src = "billeder/" + billeder[number];
+                skiftTekst.textContent = "Videre";
+                console.log(skiftTekst.textContent);
+
+
+            } else {
+                number = 0;
+                billede.src = "billeder/" + billeder[number];
+                skiftTekst.textContent = "Forfra";
+                console.log(skiftTekst.textContent);
+            }
+        }
+    </script>
+</body></html>
