@@ -47,6 +47,7 @@
             margin-top: 2%;
 
         }
+
     </style>
 </head>
 
@@ -57,13 +58,13 @@
     <main>
         <h2> Undertitel</h2>
         <section>
-            <article>
-                <img src="https://placeimg.com/400/300/nature" alt="" class="article1">
+            <article class="article">
+                <img src=" https://placeimg.com/400/300/nature" alt="">
                 <h3> Article 1</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni qui, dicta amet dolore quae autem voluptatum quis. Blanditiis ab quis aliquam deleniti quaerat odit laborum officia distinctio. Deleniti, sapiente laborum.</p>
             </article>
-            <article>
-                <img src="https://placeimg.com/400/300/nature" alt="" class="article2">
+            <article class="article">
+                <img src=" https://placeimg.com/400/300/nature" alt="">
                 <h3> Article 2</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni qui, dicta amet dolore quae autem voluptatum quis. Blanditiis ab quis aliquam deleniti quaerat odit laborum officia distinctio. Deleniti, sapiente laborum.</p>
             </article>
@@ -94,32 +95,20 @@
             }
 
             /* ------------------------- boxshadow - tilføj skygge ved mouseover ------------------------- */
-            const articleshadow1 = document.querySelector(".article1");
-            const articleshadow2 = document.querySelector(".article2");
-            articleshadow1.addEventListener("mouseout", addShadow1);
-            articleshadow2.addEventListener("mouseout", addShadow2);
-            articleshadow1.addEventListener("mouseover", removeShadow1);
-            articleshadow2.addEventListener("mouseover", removeShadow2);
+            const articleshadow = document.querySelectorAll(".article");
+            articleshadow.forEach(article => article.addEventListener("mouseout", addShadow));
+            articleshadow.forEach(article => article.addEventListener("mouseover", removeShadow));
 
-            function addShadow1() {
+
+            function addShadow() {
                 console.log("virker");
-                articleshadow1.style.boxShadow = "4px 6px 33px -2px rgba(0,0,0,0.56)";
+                this.style.boxShadow = "4px 6px 33px -2px rgba(0,0,0,0.56)";
             }
 
-            function addShadow2() {
-                console.log("virker");
-                articleshadow2.style.boxShadow = "4px 6px 33px -2px rgba(0,0,0,0.56)";
+            function removeShadow() {
+                this.style.boxShadow = "none";
             }
 
-
-
-            function removeShadow1() {
-                articleshadow1.style.boxShadow = "none";
-            }
-
-            function removeShadow2() {
-                articleshadow2.style.boxShadow = "none";
-            }
 
 
 
@@ -198,12 +187,20 @@
             paragraph.appendChild(paragraphText);
             // Tilføj paragraph til article
             newArticle.appendChild(paragraph);
-
             // Tilføj article til section
             mainSection.appendChild(newArticle);
+
+            newArticle.classList.add("article");
+            newArticle
+
+
+
 
 
 
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
