@@ -26,26 +26,23 @@
         let billeder = ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png", "img7.png", "img8.png"];
         // klik på knap for skifte billede
         const knap = document.querySelector("button");
-        const skiftTekst = document.querySelector("button");
         knap.addEventListener("click", skiftBillede);
         //opret funktion til at skifte billede
         function skiftBillede() {
-
+            billede.src = "billeder/" + billeder[number];
             //hvis billedet < billed array så skal billedet skifte
-            if (number < 7) {
+            if (number <= 6) {
                 //tæl op
                 number++;
                 console.log(billeder[number]);
-                billede.src = "billeder/" + billeder[number];
-                skiftTekst.textContent = "Videre";
-                console.log(skiftTekst.textContent);
+                knap.textContent = "Videre";
+                console.log(knap.textContent);
 
 
             } else {
                 number = 0;
-                billede.src = "billeder/" + billeder[number];
-                skiftTekst.textContent = "Forfra";
-                console.log(skiftTekst.textContent);
+                knap.textContent = "Forfra";
+                console.log(knap.textContent);
             }
         }
     </script>
