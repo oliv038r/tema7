@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-objekter</title>
+    <link rel="stylesheet" href="">
+    <style>
+        article {
+            border: 2px solid black;
+            padding: 2%;
+            background-color: #e2e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="data-container"></section>
+    <template>
+        <article id="dyr">
+            <h3></h3>
+            <p id="type">Type: </p>
+            <p> Føde:</p>
+            <ul id="fødeliste"> </ul>
+        </article>
+    </template>
+
+
+    <script>
+        const fil = "02-alleDyr.json";
+
+        async function hentData(fil) {
+            const result = await fetch(fil);
+            const json = await result.json();
+            vis(json);
+        }
+
+        function vis(json) {
+            const container = document.querySelector(".data-container");
+            const dyreTemplate = document.querySelector("template");
+            // løb dyrelisten igennem og indslt data i template
+            json.forEach(dyr => {
+                // placer dyr i html
+                const klon = dyreTemplate.cloneNode(true).content;
+                klon.querySelector("h3").textContent = dyr.navn
+                klon.querySelector("#type").textContent += dyr.type;
+                dyr.føde.forEach(føde => {
+                    klon.querySelector("#fødeliste").innerHTML += "<li>" + føde + "</li>"
+                })
+                container.appendChild(klon);
+            })
+        }
+
+
+        hentData(fil);
+    </script>
+</body></html>

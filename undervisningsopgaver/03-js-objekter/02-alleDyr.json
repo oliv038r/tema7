@@ -1,0 +1,27 @@
+[{
+        "navn": "Gris",
+        "type": "Pattedyr",
+        "føde": ["Mudder", "Æbler", "Kirsebær"]
+
+            },
+    {
+        "navn": "Frø",
+        "type": "Amfibie",
+        "føde": ["Fluer", "Græs", "Insekter"]
+            },
+    {
+        "navn": "Ræv",
+        "type": "Pattedyr",
+        "føde": ["Høns", "Kaniner", "Regnorme"]
+            },
+    {
+        "navn": "Sild",
+        "type": "Fisk",
+        "føde": ["Tang", "Plankton", "Muslinger"]
+            },
+    {
+        "navn": "Krokodille",
+        "type": "Krybdyr",
+        "føde": ["Mennesker", "Bøfler", "Antiloper"]
+            }
+        ]
