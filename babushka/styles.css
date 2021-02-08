@@ -3,8 +3,7 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
-}
+    box-sizing: border-box;}
 
 body {
     background-color: lightpink;
@@ -26,7 +25,9 @@ nav,
 
 /* ---------------------- HEAD, NAV + SPLASHBILLEDE ----------------------- */
 .top_nav {
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     padding: 1em;
     background-color: transparent;
     position: fixed;
@@ -48,26 +49,47 @@ nav,
 }
 
 header {
-    background-size: cover;
+    min-width: 100%;
     height: 90vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url(splash.jpg);
+    background: url(splash.jpg);
 }
 
 .title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    z-index: 1;
+    padding-top: 35vh;
 }
 
 .main_title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     text-transform: uppercase;
     margin: 0;
     font-size: 8rem;
-    white-space: nowrap;
     color: lightpink;
+}
+
+@media screen and (max-width: 768px) {
+    .main_title {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    .top_nav a {
+        display: none;
+    }
+
+    header {
+        width: 100%;
+        height: 30vh;
+        background-size: cover;
+    }
+
+    .title {
+        padding-top: 10vh;
+    }
 }
 
 
