@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persongalleri 2</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background-color: lightpink;
+
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 10px;
+            font-family: 'Poppins';
+            margin-left: 5%;
+            width: 90%;
+            z-index: 1;
+        }
+
+        article {
+            border: 3px solid black;
+            color: black;
+            text-align: center;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        article h2,
+        p {
+            padding: 10px;
+        }
+
+        article img {
+            width: 100%;
+            height: auto;
+        }
+
+        article:hover {
+            color: black;
+            background-color: lightpink;
+            border: 5px solid black;
+        }
+
+        nav {
+            margin-left: 16%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+
+        }
+
+        button:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            color: black;
+            background-color: lightpink;
+            border: 3px solid black;
+
+        }
+
+        button {
+            border: none;
+            padding: 10px;
+            background-color: black;
+            color: pink;
+            width: 20%;
+            border-radius: 20px;
+            font-family: 'Poppins';
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2%;
+            font-family: 'poppins';
+            text-transform: uppercase;
+
+        }
+
+        .valgt {
+            color: black;
+            background-color: lightpink;
+            border: 3px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <button data-troende="alle" class="valgt">Alle</button>
+        <button data-troende="ja">Troende</button>
+        <button data-troende="nej">Ikke-troende</button>
+        <button data-troende="tvivler">Tvivlende</button>
+    </nav>
+    <header>
+        <h1>Alle</h1>
+    </header>
+    <main class="data-container"></main>
+    <template>
+        <article>
+            <h2 class="navn"></h2>
+            <img src="" alt="" class="billede">
+        </article>
+    </template>
+
+    <script>
+        const header = document.querySelector("header h1");
+        const medieUrl = "https://persongalleri-5d3e.restdb.io/media/";
+        const myHeaders = {
+            'x-apikey': "600fe9211346a1524ff12e31"
+        }
+        document.addEventListener("DOMContentLoaded", start);
+        let personer;
+        let filter = "alle";
+
+
+        // Første funktion der kaldes efter DOM er loaded
+        function start() {
+            const filterKnapper = document.querySelectorAll("nav button");
+            filterKnapper.forEach(knap => knap.addEventListener("click", filtrerPersoner));
+            loadJSON();
+        }
+
+
+        // eventlistener knyttet til knapperne der vælger hvilket filter der er aktivt
+        function filtrerPersoner() {
+            filter = this.dataset.troende; //sætter variabel "filter" til værdien af datatroende på den knap der er klikket på
+            visPersoner(); //kalder funktionen visPersoner efter det nye filter er bestemt
+            header.textContent = this.textContent; // Ændr overskrift alt efter hvilket filter der er aktivt
+
+        }
+
+
+
+        async function loadJSON() {
+            const JSONData = await fetch("https://persongalleri-5d3e.restdb.io/rest/persongalleri", {
+                headers: myHeaders
+            });
+            personer = await JSONData.json();
+            console.log("Personer", personer);
+            visPersoner();
+        }
+
+        // Funktion der viser personer i liste-view
+        function visPersoner() {
+            const dest = document.querySelector(".data-container"); //container til articles med en person
+            const skabelon = document.querySelector("template").content; //select indhold af html-skabelon (article)
+            dest.textContent = ""; // rydder container inden nyt loop
+            personer.forEach(person => {
+                console.log("Troende", person.troende);
+                // loop igennem json (personer)
+                // Tjek hvilken tro personen har og sammenlign med aktuelt filter eller vis alle, hvis filter har værdien "alle"
+                if (filter == person.troende || filter == "alle") {
+                    const klon = skabelon.cloneNode(true);
+                    klon.querySelector(".navn").textContent = person.fornavn + " " + person.efternavn;
+                    klon.querySelector(".billede").src = medieUrl + person.billede;
+                    dest.appendChild(klon);
+                }
+            })
+        }
+    </script>
+</body></html>

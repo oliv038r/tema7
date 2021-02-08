@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persongalleri 2</title>
+    <style>
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 10px;
+            font-family: 'Poppins';
+        }
+
+        article {
+            border: 1px solid pink;
+            border-radius: 10px;
+        }
+
+        article h2,
+        p {
+            padding: 10px;
+        }
+
+        article img {
+            width: 100%;
+        }
+
+        article:hover {
+            background: #e3e3e3;
+            border: 3px solid #b25666;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <main class="data-container"></main>
+    <template>
+        <article>
+            <h2 class="navn"></h2>
+            <img src="" alt="" class="billede">
+        </article>
+    </template>
+
+    <script>
+        const header = document.querySelector("header h1");
+        const medieUrl = "https://persongalleri-5d3e.restdb.io/media/";
+        const myHeaders = {
+            'x-apikey': "600fe9211346a1524ff12e31"
+        }
+
+
+        document.addEventListener("DOMContentLoaded", start);
+        let personer;
+        let filter = "ja";
+        // Første funktion der kaldes efter DOM er loaded
+
+        function start() {
+            loadJSON();
+        }
+
+
+
+        async function loadJSON() {
+            const JSONData = await fetch("https://persongalleri-5d3e.restdb.io/rest/persongalleri", {
+                headers: myHeaders
+            });
+            personer = await JSONData.json();
+            console.log("Personer", personer);
+            visPersoner();
+        }
+
+
+        function visPersoner() {
+            const dest = document.querySelector(".data-container");
+            const skabelon = document.querySelector("template").content;
+            personer.forEach(person => {
+                // loop igennem json (personer)
+                if (filter == person.troende) {
+                    const klon = skabelon.cloneNode(true);
+                    klon.querySelector(".navn").textContent = person.fornavn + " " + person.efternavn;
+                    klon.querySelector(".billede").src = medieUrl + person.billede;
+                    dest.appendChild(klon);
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>

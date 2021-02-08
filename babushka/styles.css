@@ -1,0 +1,155 @@
+/* ---------------------- GENERELT CSS ----------------------- */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightpink;
+    color: lightpink;
+    margin-bottom: 100px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+nav,
+.top_nav {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+}
+
+
+/* ---------------------- HEAD, NAV + SPLASHBILLEDE ----------------------- */
+.top_nav {
+    text-align: center;
+    padding: 1em;
+    background-color: transparent;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.top_nav a {
+    color: lightpink;
+    text-decoration: none;
+    margin: 0 1em;
+    text-transform: uppercase;
+}
+
+.top_nav a:first-child {
+    float: left;
+    font-size: 25px;
+    line-height: 20px;
+}
+
+header {
+    background-size: cover;
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url(splash.jpg);
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.main_title {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 8rem;
+    white-space: nowrap;
+    color: lightpink;
+}
+
+
+/* ---------------------- MAIN - ARTIKLER ----------------------- */
+
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-left: 20%;
+    width: 60%;
+}
+
+article h2,
+p {
+    padding: 10px;
+}
+
+article img {
+    width: 100%;
+}
+
+article:hover {
+    background: lightpink;
+    color: black;
+    border: 2px solid black;
+}
+
+article {
+    border: 2px solid black;
+    background-color: black;
+    color: lightpink;
+    text-align: center;
+    border-radius: 10px;
+    padding: 15px;
+    font-weight: 600;
+}
+
+/* ---------------------- KATEGORI-KNAPPER OG OVERSKRIFT ----------------------- */
+nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 40px;
+    grid-row-gap: 20px;
+    margin-left: 20%;
+    width: 60%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div h1 {
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    color: black;
+    background-color: lightpink;
+    border: 3px solid black;
+}
+
+button {
+    border: none;
+    padding: 10px;
+    background-color: black;
+    color: pink;
+    border-radius: 20px;
+    font-family: 'Sora', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.valgt {
+    color: black;
+    background-color: lightpink;
+    border: 3px solid black;
+}
