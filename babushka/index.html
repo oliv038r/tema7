@@ -11,14 +11,13 @@
 </head>
 
 <body>
+
     <div class="top_nav">
         <a href="index.html">Babushka</a>
         <a href="#">Om os</a>
-        <a href="#">Menu</a>
+        <a href="index.html">Menu</a>
         <a href="#">Reservation</a>
     </div>
-
-
 
     <header>
         <div class="title">
@@ -31,26 +30,51 @@
     </header>
 
     <nav>
-        <button data-kategori="alle" class="valgt">Alle</button>
+        <button data-kategori="alle" class="valgt">Menu</button>
         <button data-kategori="forretter">Forretter</button>
         <button data-kategori="hovedretter">Hovedretter</button>
         <button data-kategori="desserter">Desserter</button>
         <button data-kategori="sideorders">Tilbehør</button>
         <button data-kategori="drikkevarer">Drikkevarer</button>
     </nav>
+
     <div>
-        <h1>Alle</h1>
+        <h1>Menu</h1>
     </div>
+
     <main class="data-container"></main>
     <template>
-        <article>
+        <article class="ret">
             <img src="" alt="" class="billede">
             <h2 class="navn"></h2>
             <p class="kortbeskrivelse"></p>
-            <p class="pris"> Pris: </p>
-            <button> Læs mere</button>
+            <p class="pris"> </p>
         </article>
     </template>
+
+
+    <div class="quote">
+        <div class="quote_img">
+            <div class="quote_txt">
+                <p>"En unik madoplevelse"</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact">
+        <div class="form">
+            <h1> Skriv til os</h1>
+            <div class="group">
+                <input type="text" required>
+                <label>Dit navn</label>
+            </div>
+            <div class="group">
+                <input type="text" required>
+                <label>Din email</label>
+            </div>
+            <a class="send-btn">Send</a>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body></html>
