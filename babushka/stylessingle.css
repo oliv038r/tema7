@@ -68,6 +68,7 @@ article {
 
 article img {
     margin-top: 20px;
+    width: 100%;
 }
 
 article h2 {
@@ -101,8 +102,15 @@ article button {
     cursor: pointer;
 }
 
-button p:hover {
+article button div:hover {
     transform: translateX(-70%);
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
+}
+
+@media screen and (max-width: 424px) {
+    article h2 {
+        margin-top: 50px;
+        font-size: 1.7rem;
+    }
 }
